@@ -1,5 +1,6 @@
 import os
 import random
+import sys
 
 import arrow
 from dotenv import load_dotenv
@@ -12,7 +13,7 @@ def name_picker(datetime_str):
     """
     select a name from a list randomly
     Args:
-        datetime_str:
+        datetime_str: string, e.g., "2025-01-01 22:03:00"
 
     Returns:
 
@@ -33,4 +34,7 @@ def name_picker(datetime_str):
 
 
 if __name__ == '__main__':
-    name_picker("2025-01-01 22:03:00")
+    if len(sys.argv) > 1:
+        name_picker(sys.argv[1])
+    else:
+        print("No args founded!")
